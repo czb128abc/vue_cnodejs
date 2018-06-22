@@ -1,1 +1,2 @@
-# vue_cnodejs
+learn vue 
+compare with react
