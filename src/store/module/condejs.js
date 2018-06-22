@@ -22,7 +22,8 @@ const app = {
     },
     actions: {
         async queryTopicList({ commit, state }, payload) {
-            const result = await services.queryTopicsByType();
+            const { page = 1, tab = 'all' } = payload;
+            const result = await services.queryTopicsByType(page, tab);
             return commit('setTopicList', result.data);
         }
     }

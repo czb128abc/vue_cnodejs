@@ -13,10 +13,16 @@ export default {
     query() {
       const { params } = this.$route;
       const { tabType } = params;
-      this.$store.dispatch("condejs/queryTopicList", { a: 1 }, 1);
+      this.$store.dispatch("condejs/queryTopicList", { page: 1, tab: tabType });
     },
     calcDate(dataStr) {
       return moment(dataStr).fromNow(true);
+    }
+  },
+  watch: {
+    $route(to, from) {
+      // 对路由变化作出响应...
+      this.query();
     }
   }
 };
